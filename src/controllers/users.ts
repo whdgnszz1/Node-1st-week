@@ -16,7 +16,7 @@ export const getOneUser = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     const user = await UsersSchema.findById(req.params.userid);
     if (!user) {
-      return res.status(404).send({ message: "User not found" });
+      return res.status(404).send({ message: "등록되지 않은 유저입니다." });
     }
     const { _id, name, email, pw } = user;
     res.status(200).send({ userId: _id, name, email, pw });
