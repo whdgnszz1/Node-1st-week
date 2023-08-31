@@ -14,9 +14,10 @@
     "typescript": "^5.2.2"
   },
   "scripts": {
-    "start": "nodemon app",
+    "start": "pm2 start app.ts --interpreter ./node_modules/.bin/ts-node",
     "build": "tsc",
-    "serve": "node dist/app.ts"
+    "serve": "node dist/app.ts",
+    "pm2-stop": "pm2 stop app.ts"
   },
   "devDependencies": {
     "@types/express": "^4.17.17"
