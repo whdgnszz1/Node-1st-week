@@ -10,8 +10,12 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 async function main() {
-  await mongoose.connect(process.env.MONGODB_URI as string);
-  console.log("DB연결성공");
+  try {
+    await mongoose.connect(process.env.MONGODB_URI as string);
+    console.log("DB연결성공");
+  } catch (error) {
+    console.error("DB 연결 실패:", error);
+  }
 }
 main();
 app.use(express.json());
